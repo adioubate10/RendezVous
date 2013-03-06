@@ -12,7 +12,7 @@ import com.opensymphony.xwork2.ActionSupport;
 /**
  * @author diop
  *
- * JEE Tutoriel 2009-2010
+ * JEE projet 2013-2014
  *
  * Action Classe : UtilisateurAction
  */

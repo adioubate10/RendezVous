@@ -1,8 +1,8 @@
 package fr.bean;
  
 /**
- * @author Olivier Guillou
- * 2009 février
+ * @author diop
+ * 2013 février
  *
  * Bean simpleUtilisateur.
  */
