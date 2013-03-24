@@ -1,8 +1,8 @@
-package fr.model;
+package fr.rendezvous.model;
  
 import java.util.List;
-import fr.bdd.TableUtilisateur;
-import fr.bean.Utilisateur;
+import fr.rendezvous.bdd.TableUtilisateur;
+import fr.rendezvous.bean.Utilisateur;
  
 /**
  * @author diop

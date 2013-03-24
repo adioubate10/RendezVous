@@ -6,14 +6,17 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<link rel="stylesheet" type="text/css" href="<s:url value="styles.css"/>" media="all" />
+		<!--  <link rel="stylesheet" type="text/css" href="<s:url value="styles.css"/>" media="all" />-->
+		
+         <style type="text/css">@import url(css/styles.css);</style>
+		
 		<title>Formulaire de login</title>
  
 	
 	</head>
  
 	<body>
- 
+ <div id="formulaire">
 		<s:form action="identificationUtilisateur" method="post" theme="simple"
 			cssClass="formulaireLogin">
  
@@ -21,8 +24,9 @@
 				<s:textfield name="utilisateur.mdp" value="Mot de passe" size="20" cssClass="inputs" />
 				 <s:submit value="Login" align="center" cssClass="boutonLogin"/></p>
  
-		
+	
  </s:form>
+ </div>	
 	</body>
  
 </html>

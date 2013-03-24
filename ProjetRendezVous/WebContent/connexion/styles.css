@@ -1,0 +1,42 @@
+@CHARSET "ISO-8859-1";
+/* reset */
+body,ul {
+	margin: 0px;
+	padding: 0px;
+}
+.formulaireLogin {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	border: 1px solid #ccc;
+	width: 200px;
+	margin: auto;
+	margin-top: 100px;
+	text-align: center;
+	-moz-border-radius: 70px 10px;
+	padding: 10px;
+}
+.inputs {
+	display: block;
+	margin: auto;
+	margin-bottom: 5px;
+	border: 1px solid #ccc;
+	color: #333;
+}
+.boutonLogin {
+	color:red;
+	margin: auto;
+	margin-top: 30px;
+	border: 1px solid #ccc;
+}
+.formulaireLogin span {
+	display: block;
+	color: #cccc00;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	border: 1px solid #ccc;
+	margin: auto;
+	margin-top: 10px;
+	text-align: center;
+	-moz-border-radius: 70px 10px;
+	padding: 10px;
+}
+
+

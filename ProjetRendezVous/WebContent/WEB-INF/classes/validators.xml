@@ -1,0 +1,49 @@
+
+<!DOCTYPE validators PUBLIC
+"-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<validators>
+	<field name="identifiant">
+		<field-validator type="int">
+			<message key="developpez.erreur.validate.identifiant"/>
+		</field-validator>
+	</field>
+
+	<field name="pseudo">
+		<field-validator type="requiredstring">
+		<message key="developpez.erreur.pseudovide"/>
+		</field-validator>
+	</field>
+
+	
+	<field name="pseudo">
+		<field-validator type="stringlength">
+			<param name="minLength">5</param>
+			<message key="developpez.erreur.validate.pseudo"/>
+		</field-validator>
+	</field>
+	
+	<field name="mail">
+		<field-validator type="email">
+			<message key="developpez.erreur.validate.mail"/>
+		</field-validator>
+	</field>
+<!-- 
+	<field name="codePostal">
+		<field-validator type="regex">
+			<param name="expression"><![CDATA[^\d{5}$]]</param>
+			<message key ="developpez.erreur.validate.codepostal"/>
+	</field-validator>
+	</field>
+	
+	<field name="dateInscription">
+	<field-validator type="date">
+		<param name="min">01/01/1990</param>
+		<param name="max">31/12/2010</param>
+		<message key="developpez.erreur.validate.dateinscription"></message>
+	</field-validator>
+	</field>
+ -->
+	
+</validators>

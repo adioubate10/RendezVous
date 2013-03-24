@@ -12,7 +12,7 @@
 
 		<init-param>
 			<param-name>actionPackages</param-name>
-			<param-value>fr.entite.etudiant</param-value>
+			<param-value>fr.rendezvous.bean</param-value>
 		</init-param>
 
 	</filter>

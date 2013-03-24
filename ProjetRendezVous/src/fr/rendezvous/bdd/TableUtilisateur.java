@@ -1,8 +1,9 @@
-package fr.bdd;
+package fr.rendezvous.bdd;
  
 import java.util.ArrayList;
 import java.util.List;
-import fr.bean.Utilisateur;
+
+import fr.rendezvous.bean.Utilisateur;
  
 /**
  * @author diop

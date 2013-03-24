@@ -1,11 +1,11 @@
-package fr.beanAction;
+package fr.rendezvous.beanAction;
 
 import java.util.Map;
 
 //import org.apache.struts2.config.Result;
 //import javax.servlet.http.HttpServletRequest;
-import fr.model.UtilisateurModel;
-import fr.bean.Utilisateur;
+import fr.rendezvous.model.UtilisateurModel;
+import fr.rendezvous.bean.Utilisateur;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
  

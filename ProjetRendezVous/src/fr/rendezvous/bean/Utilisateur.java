@@ -1,4 +1,4 @@
-package fr.bean;
+package fr.rendezvous.bean;
  
 /**
  * @author diop

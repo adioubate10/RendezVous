@@ -7,14 +7,20 @@
 
 	<constant name="struts.devMode" value="false" />
 
-	<package name="ProjetRendezVous" namespace="/" extends="struts-default">
+	<package name="fr.rendezvous.beanAction" namespace="/" extends="struts-default">
 		<action name="Menu">
 			<result> /menu/Menu.jsp</result>
 			
 		</action>
-		<action name="valider" class="fr.entite.etudiant.ControlleurEtudiantAction" method="execute">
+		<action name="valider" class="fr.rendezvous.beanAction.EtudiantAction" method="inscrire">
 			<result name="success">/formulaire/ControlleurEtudiant.jsp</result>
-			
+			<result name="error">/formulaire/erreur.jsp</result>
+			<result name="input">/formulaire/textabsant.jsp</result>
+		</action>
+		<action name="lister_Etudiant" class="fr.rendezvous.beanAction.EtudiantAction" method="listeinscrit">
+			<result name="success">/formulaire/ListeEtudiant.jsp</result>
+			<result name="error">/formulaire/erreur.jsp</result>
+			<result name="input">/formulaire/textabsant.jsp</result>
 		</action>
 		<action name="compte">
 			<result>/formulaire/formulaireEtudiant.jsp</result>
@@ -24,7 +30,7 @@
 				<result>/connexion/Connexion.jsp</result>
 			
 		</action>
-		<action name="identificationUtilisateur" class="fr.beanAction.UtilisateurAction" method="identifierUtilisateurs">
+		<action name="identificationUtilisateur" class="fr.rendezvous.beanAction.UtilisateurAction" method="identifierUtilisateurs">
             <result name="success">/connexion/success.jsp</result>
         	<result name="error">/connexion/Connexion.jsp</result>
          </action>

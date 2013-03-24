@@ -1,0 +1,22 @@
+* { margin: 2; padding: 2;}
+
+#formulaire 
+{
+	position: relative; 
+	margin-left: 2%;
+	margin-top: 2%;
+	width: 600px;
+	text-align: left; 
+	background:#fefefe;
+	border-style:solid;
+	border-width:2px;
+	border-color:#848484;
+	padding: 14px;
+}
+
+.errorMessage
+{
+	color:#EF0F0F;
+	font-family:tahoma, verdana, arial, sans-serif;
+	font-size:13px;
+}
