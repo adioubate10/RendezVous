@@ -12,22 +12,11 @@
 			<result> /menu/Menu.jsp</result>
 			
 		</action>
-		<action name="valider" class="fr.entite.etudiant.ControlleurEtudiantAction" method="execute">
-			<result name="success">/formulaire/ControlleurEtudiant.jsp</result>
+		<action name="Ajouter_Etudiant" class="ProjetRendezVous.fr.Action.EtudiantAction" method="ajouter">
+			<result name="success">/jsp/AjouterEtudiant.jsp</result>
 			
 		</action>
-		<action name="compte">
-			<result>/formulaire/formulaireEtudiant.jsp</result>
-			
-		</action>
-	      <action name="Connexion">
-				<result>/connexion/Connexion.jsp</result>
-			
-		</action>
-		<action name="identificationUtilisateur" class="fr.beanAction.UtilisateurAction" method="identifierUtilisateurs">
-            <result name="success">/connexion/success.jsp</result>
-        	<result name="error">/connexion/Connexion.jsp</result>
-         </action>
+		
 		
 	</package>
 
