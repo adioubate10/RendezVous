@@ -13,7 +13,7 @@ public class AccueilAction extends ActionSupport
 {
 	/* Attributs */
 
-
+ 
 	public String execute()
 	{	
 		return SUCCESS;
