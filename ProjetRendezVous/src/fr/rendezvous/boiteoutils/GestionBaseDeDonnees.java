@@ -23,7 +23,7 @@ public class GestionBaseDeDonnees
 		}
 	}
 	
-	/* Fermeture d'une requête */
+	/* Fermeture d'une requï¿½te */
 	public static void closeRequest(Statement requete)
 	{
 		if(requete!=null)
@@ -34,7 +34,7 @@ public class GestionBaseDeDonnees
 			}
 			catch(Exception e)
 			{
-				System.out.println("Erreur lors de la fermerture d'une requête");
+				System.out.println("Erreur lors de la fermerture d'une requete");
 			}
 		}
 	}

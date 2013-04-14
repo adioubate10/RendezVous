@@ -8,8 +8,8 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * @author Jérôme Lafosse
- * @copyright 2008
+ * @author Diop
+ * @copyright 2013
  * @version 0.1
  */
 @SuppressWarnings("serial")
@@ -31,7 +31,7 @@ public class DeconnexionAction extends ActionSupport implements ServletRequestAw
 	 }
 	 
 
-	// Déconnexion de l'utilisateur
+	// Dï¿½connexion de l'utilisateur
 	public String execute()
 	{
 		// Variables

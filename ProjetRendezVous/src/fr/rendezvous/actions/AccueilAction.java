@@ -4,8 +4,8 @@ import com.opensymphony.xwork2.ActionSupport;
 
 
 /**
- * @author Jérôme Lafosse
- * @copyright 2008
+ * @author Diop
+ * @copyright 2013
  * @version 0.1
  */
 @SuppressWarnings("serial")

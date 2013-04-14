@@ -17,8 +17,8 @@ import fr.rendezvous.boiteoutils.GestionDroit;
 
 
 /**
- * @author Jérôme Lafosse
- * @copyright 2008
+ * @author Dioubate
+ * @copyright 2013
  * @version 0.1
  */
 @SuppressWarnings("serial")
@@ -66,9 +66,9 @@ public class ClientAction extends ActionSupport
 	}
 	
 	
-	// Préparer les données pour les formulaires en modification
+	// Prï¿½parer les donnï¿½es pour les formulaires en modification
 	public void prepare() throws Exception {
-		// Initialisation du modèle
+		// Initialisation du modï¿½le
 		ModeleClientDAO modeleClientDAO=new ModeleClientDAO();
 		
 		if(idClient==0) {
@@ -102,22 +102,22 @@ public class ClientAction extends ActionSupport
 	{
 		/* Varibales
 				int codeErreur=0;
-				// Initialisation du modèle
+				// Initialisation du modï¿½le
 				ModeleClientDAO modeleClientDAO=new ModeleClientDAO();
 				
-				// On ajoute le client à la base de donnée, renvoi 1 si l'ajout s'est déroulé avec succès
+				// On ajoute le client ï¿½ la base de donnï¿½e, renvoi 1 si l'ajout s'est dï¿½roulï¿½ avec succï¿½s
 				codeErreur=modeleClientDAO.ajouterClient(client);
 					
 				// On test le code de retour pour afficher un message de succes ou d'erreur
 				if(codeErreur!=1)
 				{		
-					// Erreur lors de la création
+					// Erreur lors de la crï¿½ation
 					addActionError(getText("erreur.creationclient"));
 					return ERROR;
 				}
 				else
 				{	
-					// Succès lors de la création
+					// Succï¿½s lors de la crï¿½ation
 					addActionMessage(getText("succes.creationclient"));
 					// retourner sur la page d'accueil du site
 					return "accueil";
@@ -127,38 +127,38 @@ public class ClientAction extends ActionSupport
 		ModeleEtudiantDAO modeletu=new ModeleEtudiantDAO();
 		codeErreur=modeletu.ajouterClient(etudiant);
 		if (codeErreur==1){
-			// Succès lors de la création
+			// Succï¿½s lors de la crï¿½ation
 			addActionMessage(getText("succes.creationclient"));
 			// retourner sur la page d'accueil du site
 			return "accueil";
 		} else {
-			// Erreur lors de la création
+			// Erreur lors de la crï¿½ation
 			addActionError(getText("erreur.creationclient"));
 			return ERROR;
 		}
 			}
 	
-	// Afficher le formulaire de modification à partir des informations du modèle
+	// Afficher le formulaire de modification ï¿½ partir des informations du modï¿½le
 		public String modifier()
 		{	
 			return SUCCESS;
 		}
 		
 	
-	// Modifier un utilisateur après vérification des saisies
+	// Modifier un utilisateur aprï¿½s vï¿½rification des saisies
 	public String validerModifier()
 	{
 		// Varibales
 		int codeErreur=0;
-		// Initialisation du modèle
+		// Initialisation du modï¿½le
 		ModeleClientDAO modeleClientDAO=new ModeleClientDAO();
 
-		// Si l'utilisateur à changé son mot de passe on l'enregiste et on le Hash
+		// Si l'utilisateur ï¿½ changï¿½ son mot de passe on l'enregiste et on le Hash
 		if(!client.getMotDePasse().equals(""))
 		{
 			client.setMotDePasse(client.getMotDePasse());
 		}
-		// Si l'utilisateur n'a pas changé son mot de passe, on récupert son mot de passe haché en session
+		// Si l'utilisateur n'a pas changï¿½ son mot de passe, on rï¿½cupert son mot de passe hachï¿½ en session
 		else
 		{
 		  String ancienMotDePasse = null;//=((Client)request.getSession().getAttribute("compte")).getMotDePasse();
@@ -174,7 +174,7 @@ public class ClientAction extends ActionSupport
 			}
 		}
 		
-		// On modifie le client dans la base de données, on renvoie 1 si la modification s'est déroulée avec succès
+		// On modifie le client dans la base de donnï¿½es, on renvoie 1 si la modification s'est dï¿½roulï¿½e avec succï¿½s
 		codeErreur=modeleClientDAO.modifierClient(client);
 			
 		// On test le code de retour pour afficher un message de succes ou d'erreur
@@ -188,7 +188,7 @@ public class ClientAction extends ActionSupport
 		{	
 			// On remplace l'objet client dans la session par le nouvel objet
 			//request.getSession().setAttribute("compte", client);
-			// Succès lors de la modification
+			// Succï¿½s lors de la modification
 			addActionMessage(getText("succes.modificationclient"));
 			// retourner sur la page d'accueil du site
 			return "accueil";

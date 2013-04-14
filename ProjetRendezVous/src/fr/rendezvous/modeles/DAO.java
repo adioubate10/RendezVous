@@ -8,5 +8,5 @@ package fr.rendezvous.modeles;
  *
  */
 public interface DAO {
-
+	public Connection getConnection();
 }

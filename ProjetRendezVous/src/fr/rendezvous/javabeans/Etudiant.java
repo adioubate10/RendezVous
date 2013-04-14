@@ -5,9 +5,9 @@ package fr.rendezvous.javabeans;
 //import com.opensymphony.xwork2.ActionSupport;
 public class Etudiant extends Client{
 	/*
-     * Action struts 2 = Javabean = propriérés + méthodes
-     * Necessaire au mécanisme de transfer de données de Struts 2.
-     * le 'nom' et le 'messageAcceuilPersonalisé' seront disponible dans ValueStack
+     * Action struts 2 = Javabean = proprieres + methodes
+     * Necessaire au mecanisme de transfer de donnees de Struts 2.
+     * le 'nom' et le 'messageAcceuilPersonalisÃ©' seront disponible dans ValueStack
      */
 	private String numeroEtudiant;
 	private String option;

@@ -24,7 +24,7 @@ public class ModeleClientDAO extends ModeleDAO
 	private String typerecherche;
 	
 	
-	// Constructeur par défaut
+	// Constructeur par dï¿½faut
 	public ModeleClientDAO ()
 	{
 
@@ -80,10 +80,10 @@ public class ModeleClientDAO extends ModeleDAO
 			// Ouverture d'une connexion
 			connexion=super.getConnection();
 			
-			// Création de la requête
+			// Crï¿½ation de la requï¿½te
 			requeteString="INSERT INTO client(nomclient,prenomclient,emailclient,adresseclient,codepostalclient,identifiantclient,motdepasseclient,telephoneclient,villeclient,paysclient) VALUES (?,?,?,?,?,?,?,?,?,?)";
 			
-			// Préparation de la requête
+			// Prï¿½paration de la requï¿½te
 			requete=connexion.prepareStatement(requeteString);
 			requete.setString(1,(String)client.getNom());
 			requete.setString(2,(String)client.getPrenom());
@@ -96,10 +96,10 @@ public class ModeleClientDAO extends ModeleDAO
 			requete.setString(9,(String)client.getVille());
 			requete.setString(10,(String)client.getPays());
 			
-			// On vide le client par sécurité
+			// On vide le client par securitÃ©
 			client=null;
 			
-			// Execution de la requête
+			// Execution de la requete
 			codeErreur=requete.executeUpdate();
 		}
 		catch (Exception e) 
@@ -127,7 +127,7 @@ public class ModeleClientDAO extends ModeleDAO
 			}
 			catch(Exception ex)
 			{
-				System.out.println("Erreur lors de la fermeture de la connexion avec la base de données dans la classe ModelClient fonction creerClient");
+				System.out.println("Erreur lors de la fermeture de la connexion avec la base de donnï¿½es dans la classe ModelClient fonction creerClient");
 			}	
 		}
 		
@@ -138,7 +138,7 @@ public class ModeleClientDAO extends ModeleDAO
 	
 	
 	
-	// Liste paginée des clients
+	// Liste paginï¿½e des clients
 	public List<Client> listeClientPaginer(int maxParPage, int pageActuel, String recherche, String typerecherche, String champTri, String typeTri)
 	{	
 		// Variables
@@ -153,31 +153,31 @@ public class ModeleClientDAO extends ModeleDAO
 			// Ouverture d'une connexion
 			connexion = super.getConnection();
 			
-			// Première requête : on récupert le nombre total de clients
+			// Premiï¿½re requï¿½te : on rï¿½cupert le nombre total de clients
 
-			// On créé la requête 
+			// On crï¿½ï¿½ la requï¿½te 
 			requeteString="SELECT COUNT(DISTINCT(client.id_client)) as total FROM client WHERE 1";
 			
-			// Si il s'agit d'une recherche, on modifie la requête en conséquence
+			// Si il s'agit d'une recherche, on modifie la requï¿½te en consï¿½quence
 			if((recherche!=null && !recherche.equalsIgnoreCase("")) && (typerecherche != null && !typerecherche.equals("")))
 			{
 				requeteString+=" AND " + typerecherche + " like ?";
 				
-				// Préparation de la requête
+				// Prï¿½paration de la requï¿½te
 				requete=connexion.prepareStatement(requeteString);
 				requete.setString(1,"%" + recherche + "%");
 			}
 			// Dans le cas contraire on prend en compte tous les clients
 			else
 			{
-				// Préparation de la requête
+				// Prï¿½paration de la requï¿½te
 				requete=connexion.prepareStatement(requeteString);
 			}
 			
-			// Execution de la requête 
+			// Execution de la requï¿½te 
 			resultat=requete.executeQuery();
 			
-			// On récupert le nombre de clients
+			// On rï¿½cupert le nombre de clients
 			if(resultat!=null)
 			{
 				if(resultat.next())
@@ -186,15 +186,15 @@ public class ModeleClientDAO extends ModeleDAO
 				}
 			}
 			
-			// On vérifie que la page demandé est valable
+			// On vï¿½rifie que la page demandï¿½ est valable
 			position=maxParPage*(pageActuel-1);
 			if(position>totalElement || maxParPage>totalElement)
 			{
-				// On modifie les variables de pagination envoyé dans la requête
+				// On modifie les variables de pagination envoyï¿½ dans la requï¿½te
 				pageActuel=1;
 			}
 			
-			// On définit les variables de pagination finales
+			// On dï¿½finit les variables de pagination finales
 			position=maxParPage*(pageActuel-1);
 			this.maxParPage=maxParPage;
 			this.pageActuel=pageActuel;
@@ -203,18 +203,18 @@ public class ModeleClientDAO extends ModeleDAO
 			this.typeTri=typeTri;
 			this.typerecherche=typerecherche;
 		
-			// Deuxième requête : on récupert la liste suivant une pagination
+			// Deuxiï¿½me requï¿½te : on rï¿½cupert la liste suivant une pagination
 
-			// Création de la requête
+			// Crï¿½ation de la requï¿½te
 			requeteString="SELECT * FROM client WHERE 1";
 			
-			// Si il s'agit d'une recherche, on modifie la requête en conséquence
+			// Si il s'agit d'une recherche, on modifie la requï¿½te en consï¿½quence
 			if((recherche!=null && !recherche.equalsIgnoreCase("")) && (typerecherche != null && !typerecherche.equals("")))
 			{
 				requeteString+=" AND " + typerecherche + " like ?";
 				requeteString+=" ORDER BY " + champTri + " " + typeTri + " LIMIT " + position + "," + maxParPage;
 				
-				// Préparation de la requête
+				// Prï¿½paration de la requï¿½te
 				requete=connexion.prepareStatement(requeteString);
 				requete.setString(1,"%" + recherche + "%");
 			}
@@ -223,11 +223,11 @@ public class ModeleClientDAO extends ModeleDAO
 			{
 				requeteString+=" ORDER BY " + champTri + " " + typeTri + " LIMIT " + position + "," + maxParPage;
 				
-				// Préparation de la requête
+				// Prï¿½paration de la requï¿½te
 				requete=connexion.prepareStatement(requeteString);
 			}
 	
-			// Execution de la requête
+			// Execution de la requï¿½te
 			resultat=requete.executeQuery();
 
 			// On stocke le resultat dans une liste
@@ -267,7 +267,7 @@ public class ModeleClientDAO extends ModeleDAO
 			}
 			catch(Exception ex)
 			{
-				System.out.println("Erreur lors de la fermeture de la connexion avec la base de données dans la classe ModeleClients fonction listerClient");
+				System.out.println("Erreur lors de la fermeture de la connexion avec la base de donnï¿½es dans la classe ModeleClients fonction listerClient");
 			}	
 		}
 		
@@ -292,13 +292,13 @@ public class ModeleClientDAO extends ModeleDAO
 			/* Ouverture d'une connexion */
 			connexion = super.getConnection();
 		
-			/* Création de la requête */
+			/* Crï¿½ation de la requï¿½te */
 			requeteString = "SELECT * FROM client WHERE 1";
 			
-			/* Préparation de la requête */
+			/* Prï¿½paration de la requï¿½te */
 			requete = connexion.prepareStatement(requeteString);
 			
-			/* Execution de la requête */
+			/* Execution de la requï¿½te */
 			resultat = requete.executeQuery();
 
 			/* On stocke le resultat dans une liste */
@@ -340,7 +340,7 @@ public class ModeleClientDAO extends ModeleDAO
 			}
 			catch(Exception ex)
 			{
-				System.out.println("Erreur lors de la fermeture de la connexion avec la base de données dans la classe ModeleClients fonction listerClient");
+				System.out.println("Erreur lors de la fermeture de la connexion avec la base de donnï¿½es dans la classe ModeleClients fonction listerClient");
 			}	
 		}
 		
@@ -363,14 +363,14 @@ public class ModeleClientDAO extends ModeleDAO
     		/* Ouverture d'une connexion */
     		connexion = super.getConnection();
     		
-    		/* Création de la requête */
+    		/* Crï¿½ation de la requï¿½te */
     		requeteString = "SELECT * FROM client where identifiantclient=?";
     		
     		/* Preparer la requete */
     		requete = connexion.prepareStatement(requeteString);
     		requete.setString(1,identifiant);
     			
-    		/* Execution de la requête */
+    		/* Execution de la requï¿½te */
     		resultat = requete.executeQuery();
     		
     		/* On stocke le resultat dans la l'objet client */
@@ -386,9 +386,9 @@ public class ModeleClientDAO extends ModeleDAO
     
     	catch(Exception e)
     	{
-    		/* Si l'identifant du client n'existe pas, on initialise l'objet client à null */
+    		/* Si l'identifant du client n'existe pas, on initialise l'objet client ï¿½ null */
 			client = null;
-    		System.out.println("Erreur dans la requête dans la classe ModeleClient.java fonction getClient");    		
+    		System.out.println("Erreur dans la requï¿½te dans la classe ModeleClient.java fonction getClient");    		
     	}
     	
     	finally
@@ -411,7 +411,7 @@ public class ModeleClientDAO extends ModeleDAO
     		}
     		catch(Exception ex)
     		{
-    			System.out.println("Erreur lors de la fermeture de la connexion avec la base de données dans la classe ModeleClient.java fonction getClient");
+    			System.out.println("Erreur lors de la fermeture de la connexion avec la base de donnï¿½es dans la classe ModeleClient.java fonction getClient");
     		}	
     	}
     	
@@ -422,7 +422,7 @@ public class ModeleClientDAO extends ModeleDAO
     
     
     
-    // Retourner les informations d'un client à partir de son idClient
+    // Retourner les informations d'un client ï¿½ partir de son idClient
     public Client getClient(int idClient)
     {
     	// Variables
@@ -435,14 +435,14 @@ public class ModeleClientDAO extends ModeleDAO
     		// Ouverture d'une connexion
     		connexion=super.getConnection();
     		
-    		// Création de la requête
+    		// Crï¿½ation de la requï¿½te
     		requeteString="SELECT * FROM client where id_client = ?";
     		
     		// Preparer la requete
     		requete=connexion.prepareStatement(requeteString);
     		requete.setInt(1,idClient);
     			
-    		// Execution de la requête
+    		// Execution de la requï¿½te
     		resultat=requete.executeQuery();
     		
     		// On stocke le resultat dans la l'objet client
@@ -457,9 +457,9 @@ public class ModeleClientDAO extends ModeleDAO
        	}
     	catch(Exception e)
     	{
-    		// Si l'identifant du client n'existe pas, on initialise l'objet client à null
+    		// Si l'identifant du client n'existe pas, on initialise l'objet client ï¿½ null
 			client=null;
-    		System.out.println("Erreur dans la requête dans la classe ModeleClient.java fonction getClient");    		
+    		System.out.println("Erreur dans la requï¿½te dans la classe ModeleClient.java fonction getClient");    		
     	}
     	finally
     	{
@@ -481,7 +481,7 @@ public class ModeleClientDAO extends ModeleDAO
     		}
     		catch(Exception ex)
     		{
-    			System.out.println("Erreur lors de la fermeture de la connexion avec la base de données dans la classe ModeleClient.java fonction getClient");
+    			System.out.println("Erreur lors de la fermeture de la connexion avec la base de donnï¿½es dans la classe ModeleClient.java fonction getClient");
     		}	
     	}
     	
@@ -504,10 +504,10 @@ public class ModeleClientDAO extends ModeleDAO
 			// Ouverture d'une connexion
 			connexion=super.getConnection();
 			
-			// Création de la requête
+			// Crï¿½ation de la requï¿½te
 			requeteString="UPDATE client set nomclient=?, prenomclient=?,emailclient=?,adresseclient=?,codepostalclient=?,identifiantclient=?,motdepasseclient=?,telephoneclient=?,villeclient=?,paysclient=? WHERE id_client=?";
 				
-			// Préparation de la requête 
+			// Prï¿½paration de la requï¿½te 
 			requete=connexion.prepareStatement(requeteString);
 			requete.setString(1,client.getNom());
 			requete.setString(2,client.getPrenom());
@@ -521,7 +521,7 @@ public class ModeleClientDAO extends ModeleDAO
 			requete.setString(10,client.getPays());
 			requete.setInt(11,client.getIdClient());
 			
-			// Execution de la requête
+			// Execution de la requï¿½te
 			codeErreur = requete.executeUpdate();
 		}
 		catch(Exception e) 
@@ -549,7 +549,7 @@ public class ModeleClientDAO extends ModeleDAO
 			}
 			catch(Exception ex)
 			{
-				System.out.println("Erreur lors de la fermeture de la connexion avec la base de données dans la classe ModelClient fonction modifierClient");
+				System.out.println("Erreur lors de la fermeture de la connexion avec la base de donnï¿½es dans la classe ModelClient fonction modifierClient");
 			}	
 		}
 		
@@ -570,7 +570,7 @@ public class ModeleClientDAO extends ModeleDAO
 	
 		try
 		{	
-			// Initialisation du modèle raccourci
+			// Initialisation du modï¿½le raccourci
 			//modeleRaccourciDAO=new ModeleRaccourciDAO();
 			
 			// Ouverture d'une connexion
@@ -579,24 +579,24 @@ public class ModeleClientDAO extends ModeleDAO
 			// Annulation de l'autocommit
 			connexion.setAutoCommit(false);
 			
-			// Première requête : suppression du client
+			// Premiï¿½re requï¿½te : suppression du client
 			requeteString="DELETE FROM client WHERE id_client = ?";
 			
-			// Préparation de la requête
+			// Prï¿½paration de la requï¿½te
 			requete=connexion.prepareStatement(requeteString);
 			requete.setInt(1, idClient);
 			
-			// Execution de la requête
+			// Execution de la requï¿½te
 			codeErreur=requete.executeUpdate();
 			
-			// Si il n'y a pas eut d'erreur durant la suppression du client, on peut supprimer les raccourcis associés au client.
+			// Si il n'y a pas eut d'erreur durant la suppression du client, on peut supprimer les raccourcis associï¿½s au client.
 			if(codeErreur==1)
 			{
-				// Deuxième requête : suppression des raccourcis du client
+				// Deuxiï¿½me requï¿½te : suppression des raccourcis du client
 				//codeErreur=modeleRaccourciDAO.supprimerRaccourcisClient(idClient);
 			}
 			
-			// Si il n'y a pas eu d'erreur durant la suppression des raccourcis du client, ou du client lui même : on fait un commit, sinon un rollback
+			// Si il n'y a pas eu d'erreur durant la suppression des raccourcis du client, ou du client lui mï¿½me : on fait un commit, sinon un rollback
 			if(codeErreur==1)
 			{
 				GestionBaseDeDonnees.commit(connexion);
@@ -632,7 +632,7 @@ public class ModeleClientDAO extends ModeleDAO
 			}
 			catch(Exception ex)
 			{
-				System.out.println("Erreur lors de la fermeture de la connexion avec la base de données dans la classe ModeleClient fonction supprimerClient");
+				System.out.println("Erreur lors de la fermeture de la connexion avec la base de donnï¿½es dans la classe ModeleClient fonction supprimerClient");
 			}	
 		}
 		

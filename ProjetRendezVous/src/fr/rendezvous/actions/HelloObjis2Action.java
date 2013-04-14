@@ -6,13 +6,13 @@ import org.apache.struts2.config.Result;
 import com.opensymphony.xwork2.ActionSupport;
 
 /* 
- * Action Hello Objis .  Cette action s'attend à recevoir 
- * un nom entré à partir d'une jsp : Nom.jsp. 
+ * Action Hello Objis .  Cette action s'attend recevoir 
+ * un nom entree partir d'une jsp : Nom.jsp. 
  *  
- * La logique métier de cette action : 
- * concaténation du nom avec un message d'accueil 'static'
- * puis rendre ce message personnalisé disponible pour 
- * le composant Result à qui il le forwarde.  
+ * La logique metier de cette action : 
+ * concatenation du nom avec un message d'accueil 'static'
+ * puis rendre ce message personnalise disponible pour 
+ * le composant Result  qui il le forwarde.  
  */
 
 //@Result( name="SUCCESS",value="vues/utilisateurs/ControlleurEtudiant.jsp" )
@@ -26,20 +26,20 @@ public class HelloObjis2Action extends ActionSupport{
 	/*
 	 * Par default, le framework Struts 2  invoke la methode execute() 
 	 * de l'objet Action.  Plusieurs strategies existent pour invoquer d'autres methodes
-	 * , mais c'est la méthode invoquée par defaut.
+	 * , mais c'est la methode invoquï¿½e par defaut.
 	 *  
 	 */
 	
     public String execute()  {
     	
-    	/* Construit message d'accueil personnalisé.  
-    	 * Fait en sorte que ce message personnalisé puisse être lu 
+    	/* Construit message d'accueil personnalise.  
+    	 * Fait en sorte que ce message personnalise puisse etre lu 
     	 * par la vue (Result).
     	 */ 
     	
     	setAccueilPersonalise( GREETING + getNom() );
     	
-    	/* Ici pas d'echec possible, donc on dit que notre logique métier a reussit.
+    	/* Ici pas d'echec possible, donc on dit que notre logique metier a reussit.
     	 */
     	
     	return SUCCESS;
@@ -47,9 +47,9 @@ public class HelloObjis2Action extends ActionSupport{
 
 
     /*
-     * Action struts 2 = Javabean = propriérés + méthodes
-     * Necessaire au mécanisme de transfer de données de Struts 2.
-     * le 'nom' et le 'messageAcceuilPersonalisé' seront disponible dans ValueStack
+     * Action struts 2 = Javabean = proprieres + methodes
+     * Necessaire au mecanisme de transfer de donnees de Struts 2.
+     * le 'nom' et le 'messageAcceuilPersonalise' seront disponible dans ValueStack
      */
     
     private String nom;
