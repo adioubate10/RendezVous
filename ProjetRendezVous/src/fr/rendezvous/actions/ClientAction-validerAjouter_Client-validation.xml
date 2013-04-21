@@ -1,0 +1,111 @@
+<!DOCTYPE validators PUBLIC
+        "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+        "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<validators>
+
+    
+    <field name="etudiant.nom">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message key="champobligatoire"/>
+        </field-validator>        
+    </field> 
+    <field name="etudiant.prenom">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message key="champobligatoire"/>
+        </field-validator>        
+    </field>   
+    <field name="etudiant.mail">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message key="champobligatoire"/>
+        </field-validator> 
+        <field-validator type="email">
+            <param name="trim">true</param>
+            <message key="champemail"/>
+        </field-validator>        
+    </field> 
+    <field name="etudiant.adresse">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message key="champobligatoire"/>
+        </field-validator>        
+    </field>
+    <field name="etudiant.codePostal">
+    	<field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message key="champobligatoire"/>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="expression"><![CDATA[^\d{5}$]]></param> 
+            <message key="champexpressionreguliere"/>
+        </field-validator>        
+    </field>
+    <field name="etudiant.ville">
+    	<field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message key="champobligatoire"/>
+        </field-validator>       
+    </field>
+    <field name="etudiant.telephone">
+    	<field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message key="champobligatoire"/>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="expression"><![CDATA[^(0){1}\d{1}([ \\.]?\d{2}){4}$]]></param> 
+            <message key="champexpressionreguliere"/>
+        </field-validator>        
+    </field>
+    <field name="etudiant.ville">
+    	<field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message key="champobligatoire"/>
+        </field-validator>       
+    </field>
+    <field name="etudiant.pays">
+    	<field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message key="champobligatoire"/>
+        </field-validator>       
+    </field>
+    <field name="etudiant.identifiant">
+    	<field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message key="champobligatoire"/>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">5</param>
+            <param name="maxLength">20</param>
+            <message key="champminimum"/>
+        </field-validator>         
+    </field>
+    <field name="etudiant.motDePasse">
+    	<field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message key="champobligatoire"/>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">5</param>
+            <param name="maxLength">20</param>
+            <message key="champminimum"/>
+        </field-validator>                
+    </field>
+    <field name="etudiant.confirmationMotDePasse">
+    	<field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message key="champobligatoire"/>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">5</param>
+            <param name="maxLength">20</param>
+            <message key="champminimum"/>
+        </field-validator> 
+        <field-validator type="expression">
+    		<param name="expression">etudiant.motDePasse==etudiant.confirmationMotDePasse</param>
+        	<message key="champmotdepassedifferent"/>
+        </field-validator>              
+    </field>
+</validators>

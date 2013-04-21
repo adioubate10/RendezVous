@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+    
+<struts>
+
+    <package name="frontoffice" namespace="/" extends="struts-default">	
+			
+		<default-action-ref name="Index"/>
+		
+		<global-results>
+			<result name="accueil">/vues/utilisateurs/index.jsp</result>
+			
+		</global-results>
+		
+        
+		<action name="Index" class="fr.rendezvous.actions.AccueilAction">
+            <result>/vues/utilisateurs/index.jsp</result>
+        </action>
+                 <action name="Authentification" class="fr.rendezvous.actions.AuthentificationAction">
+            <result name="input">/vues/utilisateurs/index.jsp</result>
+            <result name="error">/vues/utilisateurs/index.jsp</result>
+            <result>/vues/utilisateurs/index.jsp</result>
+        </action>
+        
+        <action name="Deconnexion" class="fr.rendezvous.actions.DeconnexionAction">
+            <result name="success" type="redirect">Index.action</result>
+        </action>
+        <action name="*_Client" class="fr.rendezvous.actions.ClientAction" method="{1}">
+       		<result name="input">/vues/utilisateurs/ajouterutilisateur.jsp</result>
+            <result name="error">/vues/utilisateurs/index.jsp</result>
+            <interceptor-ref name="paramsPrepareParamsStack"/>
+            <result>/vues/utilisateurs/{1}client.jsp</result>
+        </action>
+        <action name="ListingAction" class="fr.rendezvous.actions.ListingAction">
+<result>/vues/utilisateurs/ajouterutilisateur.jsp</result>
+</action>
+<action name="DetailAction" class="fr.rendezvous.actions.DetailAction">
+<result>/vues/utilisateurs/detail.jsp</result>
+</action>
+<action name="EtudiantAction" class="fr.rendezvous.actions.EtudiantAction">
+<result>/vues/utilisateurs/ajouteretudiant.jsp</result>
+</action>
+    </package>
+
+</struts>

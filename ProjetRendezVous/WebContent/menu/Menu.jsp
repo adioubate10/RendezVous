@@ -2,13 +2,13 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <html>
 <head>
-<title>Gestion des rendez vous</title>
+<title>Menu première application Struts 2</title>
 </head>
 
 <body>
 	<hr>
 	<ul>
-		<li> <a href="<s:url action='compte'/>">Etudiant</a></li>
+		<li><a href="<s:url action='nom'/>">HelloObjis</a></li>
 	</ul>
 	<hr>
 </body>

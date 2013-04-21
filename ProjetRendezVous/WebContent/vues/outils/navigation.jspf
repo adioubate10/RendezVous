@@ -1,0 +1,113 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+
+
+
+	<!-- Formulaire d'ajout de raccourci -->
+	<c:if test="">
+	
+		<!-- Plugin les raccourci utilisateur -->
+		<script type="text/javascript" src="javascript/raccourci.js"></script>
+		
+		<!-- Raccourci utilisateur -->
+		<div id="conteneurraccourci">
+			<table id="formulaireraccourci" class="raccourci">
+				<tbody>
+					<tr>
+						<td>
+							<b>Ajouter un favoris : </b>
+						</td>
+						<td align="right">
+							<img src="images/application/trash.png" onclick="fermerRaccourci();" style="cursor:pointer;" />
+						</td>
+					</tr>
+					<tr height="30px">
+						<td>
+							<b>Nom :</b> &nbsp;<input type="text" id="nomraccourci" name="nomraccourci" class="inputpetit" maxlength="25"/>
+						</td>
+						<td>
+							<img src="images/application/ok.gif" style="cursor:pointer;" onclick="ajouterRaccourci();" title="Ajouter ce favoris"/>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" id="messageraccourci">
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<br/>
+			
+			<table id="listeraccourci" class="raccourci">
+			</table>
+		</div>
+				
+	</c:if>
+
+
+	<table border="0" cellspacing="0" cellpadding="0" name="menugauche" id="menugauche" style="background: url('images/application/fondmenu.gif') repeat-x;" height="500">
+		
+		<!-- Affichage du menu utilisateur -->
+		<c:if test="">
+			<tr>
+				<td width="100%" valign="top" height="80px">
+					<ul class="menucategorie">
+						<li>
+							<ul id="menuaut">
+								<li><a title="Accueil">Accueil</a></li>
+								<li><a href="promotions_Article.action" title="Promotions">Etudiants</a></li>
+								<li><a href="nouveautes_Article.action" title="Nouveaut&eacute;s">Professeurs</a></li>
+								<li><a href="Cgv.action" title="CGV">Medecin</a></li>
+								<li><a href="lister_Panier.action" title="Panier">Patient</a></li>
+							</ul>
+						</li>
+						<li>
+							<div class="lien" onclick="afficherRaccourci();">
+								
+							</div>
+						</li>
+					</ul>
+				</td>
+			</tr>
+		</c:if>
+		
+		<tr>
+			<td width="100%" valign="top">
+				<ul class="menucategorie">
+				
+							
+								
+								<li><a title="Accueil">Accueil</a></li>
+								<li><a href="promotions_Article.action" title="Promotions">Etudiants</a></li>
+								<li><a href="nouveautes_Article.action" title="Nouveaut&eacute;s">Professeurs</a></li>
+								<li><a href="Cgv.action" title="CGV">Medecin</a></li>
+								<li><a href="lister_Panier.action" title="Panier">Patient</a></li>
+							
+					
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td width="100%" valign="top" height="40px">
+				<form id="formulairerecherche" name="formulairerecherche" action="lister_Article.action" method="post">
+					<input type="text" id="recherche" name="recherche" value="<c:out value="" />" onfocus="chargerAutoCompleteUser()"/>
+					<input type="image" src="images/application/ok.gif" title="Lancer la recherche" align="absmiddle"/>
+				</form>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" align="center" bgcolor="#ffce00" height="50" class="textepanier">
+				<div id="panier" class="drop">
+					<a href="vues/ajax/panierdynamique.jsp?width=452" class="jTip" id="aidedynamique" name="Votre panier" onclick="javascript:window.location='gestionPanier?action=lister';">
+						<img src="images/application/panier.gif" border="0" style="padding-top:10px;"/> 
+						Panier
+					</a>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td align="center">
+				<img src="images/application/cartes.gif" border="0" style="marginbottom:5px;"/>
+			</td>
+		</tr>
+	</table>

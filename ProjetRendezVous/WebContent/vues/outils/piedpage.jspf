@@ -1,0 +1,22 @@
+					</td>
+				</tr>
+			</table>
+			<br/>
+			<br/>
+			<div id="menubas" >
+				<a href="" title="Accueil">Accueil</a> |
+				<a href="promotions_Article.action" title="Promotions">Promotions</a> |
+				<a href="nouveautes_Article.action" title="Nouveaut&eacute;s">Nouveaut&eacute;s</a> |
+				<a href="lister_Article.action?idCategorie=0" title="Catalogue">Catalogue</a> |
+				<a href="Contact.action" title="Contact">Contact</a> |
+				<a href="Cgv.action" title="CGV">Conditions de vente</a>
+			</div>
+			
+			<div id="betaboutique">
+				BetaBoutique est une boutique de et par la soci&eacute;t&eacute; BetaBoutique SARL au
+				Capital 10 000Euros n° siret 111 222 333 444 555
+			</div>
+		</div>
+	</div>
+	</body>
+</html>

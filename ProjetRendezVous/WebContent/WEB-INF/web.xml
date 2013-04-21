@@ -1,18 +1,67 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+<?xml version="1.0" encoding="ISO-8859-1"?> 
+<!DOCTYPE web-app
+PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+"http://java.sun.com/dtd/web-app23.dtd">
+<web-app> 
 
-	id="WebApp_ID" version="2.5">
+	<!-- Parametre globaux -->
+	
 	<display-name>ProjetRendezVous</display-name>
-
+  <context-param>
+        <param-name>nomProjet</param-name>
+        <param-value>ProjetRendezVous</param-value>
+    </context-param>
+	<context-param>
+		<param-name>urlApplication</param-name>
+		<param-value>http://localhost:8080/ProjetRendezVous/</param-value>
+	</context-param>
+	<context-param>
+		<param-name>uploadTailleMax</param-name>
+		<param-value>5242880</param-value>
+	</context-param>
+	<context-param>
+		<param-name>photoParDefaut</param-name>
+		<param-value>grandedefaut.png</param-value>
+	</context-param>
+	<context-param>
+		<param-name>vignetteParDefaut</param-name>
+		<param-value>defaut.png</param-value>
+	</context-param>
+	<context-param>
+		<param-name>dossierImage</param-name>
+		<param-value>/usr/local/tomcat/webapps/ProjetRendezVous/</param-value>
+	</context-param>
+	<context-param>
+		<param-name>smtp</param-name>
+		<param-value>localhost</param-value>
+	</context-param>
+	<context-param>
+		<param-name>serviceClient</param-name>
+		<param-value>info@gdawj.com</param-value>
+	</context-param>
+	<context-param>
+		<param-name>mailContact</param-name>
+		<param-value>info@gdawj.com</param-value>
+	</context-param>
+	<context-param>
+		<param-name>adresseContact</param-name>
+		<param-value>2 rue de Chatillon</param-value>
+	</context-param>
+	<context-param>
+		<param-name>villeContact</param-name>
+		<param-value>25000 BESANCON</param-value>
+	</context-param>
+	<context-param>
+		<param-name>telephoneContact</param-name>
+		<param-value>+33 3 00 00 00 00</param-value>
+	</context-param>
 	<filter>
 		<filter-name>struts2</filter-name>
 		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
 
 		<init-param>
 			<param-name>actionPackages</param-name>
-			<param-value>fr.rendezvous.bean</param-value>
+			<param-value>fr.rendezvous</param-value>
 		</init-param>
 
 	</filter>
@@ -23,6 +72,38 @@
 	</filter-mapping>
 
 	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
+		<welcome-file>/vues/utilisateurs/index.jsp</welcome-file>
 	</welcome-file-list>
+   <!-- TagLib -->
+	<taglib>
+		<taglib-uri>/WEB-INF/tld/betaboutique.tld</taglib-uri>
+		<taglib-location>/WEB-INF/tld/betaboutique.tld</taglib-location>
+	</taglib>
+	<taglib>
+		<taglib-uri>/WEB-INF/tld/pagination.tld</taglib-uri>
+		<taglib-location>/WEB-INF/tld/pagination.tld</taglib-location>
+	</taglib>
+	<taglib>
+		<taglib-uri>/WEB-INF/tld/c.tld</taglib-uri>
+		<taglib-location>/WEB-INF/tld/c.tld</taglib-location>
+	</taglib>
+	<taglib>
+		<taglib-uri>/WEB-INF/tld/x.tld</taglib-uri>
+		<taglib-location>/WEB-INF/tld/x.tld</taglib-location>
+	</taglib>
+	<taglib>
+		<taglib-uri>/WEB-INF/tld/sql.tld</taglib-uri>
+		<taglib-location>/WEB-INF/tld/sql.tld</taglib-location>
+	</taglib>
+
+	
+	<!-- Informations de connexion a la base de donnees -->
+	<resource-ref>
+		<description>Connexion a la base de donnees MySQL</description>
+		<res-ref-name>jdbc_betaboutiquestruts2_MySQL</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+	</resource-ref>
+	
+	
 </web-app>
