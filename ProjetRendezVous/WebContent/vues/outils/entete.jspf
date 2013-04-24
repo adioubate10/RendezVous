@@ -18,7 +18,7 @@
 		<link rel="stylesheet" type="text/css" href=" css/styles_panier.css" />
 		<link rel="stylesheet" type="text/css" href=" css/jtip.css" />
 		<link rel="stylesheet" type="text/css" href=" css/autocomplete.css"/>
-
+        
 		<!-- Biliothèques Javascript -->
 		<script type="text/javascript" src=" javascript/jquery/jquery.js"></script>
 		<script type="text/javascript" src=" javascript/jtip/jtip.js"></script>
@@ -42,8 +42,8 @@
 			<div id="entete">
 				<table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
 					<tr>
-						<td align="left" valign="top"><a><img src="images/application/bandeau_haut_gauche.jpg" border="0"/></a></td>
-						<td align="left" valign="top"><img src="images/application/bandeau_haut_centre.jpg"/></td>
+						<td align="left" valign="top"><a><img src="images/application/rdv.jpg" border="0"/></a></td>
+						<td align="left" valign="top"><img src="images/application/bandeau_haut_droite.jpg" width="500" height="150"/></td>
 						<td align="left" valign="top" background="images/application/bandeau_haut_droite.jpg" width="222">
 							
 						
@@ -59,13 +59,13 @@
 													<tr>
 														<td>
 															<div class="titregris">IDENTIFIANT</div>
-															<s:textfield key="identifiant" label="Identifiant" cssClass="inputpetit" cssErrorStyle="background-color:#D53A3E"/>
+															<s:textfield key="identifiant" value="bannay" label="Identifiant" cssClass="inputpetit" cssErrorStyle="background-color:#D53A3E"/>
 														</td>
 													</tr>
 													<tr>
 														<td>
 															<div class="titregris">MOT DE PASSE</div>
-															<s:textfield name="motDePasse" label="motDePasse" cssClass="inputpetit" cssErrorStyle="background-color:#D53A3E"/>
+															<s:textfield key="motDePasse" value="00000" label="motDePasse" cssClass="inputpetit" cssErrorStyle="background-color:#D53A3E"/>
 															<input type="image" src="images/application/ok.gif" align="absmiddle" title="Se connecter"/>
 														</td>
 													</tr>
@@ -78,10 +78,7 @@
 											<a href="ListingAction.action" title="S'inscrire">
 												<img src="images/application/inscrire.gif"/>
 											</a>
-											&nbsp;&nbsp;
-											<a href="RendezVous.action" title="Panier">
-												<img src="images/application/monpanier.gif"/>
-											</a>
+											
 										</td>
 									</tr>
 								</table>
@@ -94,7 +91,7 @@
 									<tr height="50px">
 										<td align="center" style="padding-left:10px;padding-top:20px">
 											<div class="titregris">
-												Bienvenue <c:out value="${compte.prenom}"/> <c:out value="${compte.nom}"/>
+												Bienvenue <c:out value="${compte.nom}"/> <c:out value="${compte.nom}"/>
 		 									</div>
 		 								</td>
 		 							</tr>
@@ -112,8 +109,21 @@
 													<img src="images/application/moncompte.gif"/>
 												</a>
 												&nbsp;&nbsp;
-												<a href="RendezVous.action" title="Panier">
-													<img src="images/application/monpanier.gif"/>	
+												<a href="RendezVous.action" title="Rendez Vous">
+													<img src="images/application/monrdv.gif"/>	
+												</a>
+											</td>
+										</tr>
+									</c:if>
+									<c:if test="${compte.class=='class fr.rendezvous.javabeans.Professeur'}">
+			 							<tr valign="top">
+											<td class="lien" style="padding-left:10px;padding-top:20px">
+												<a href="consulter_Client.action" title="Mon compte">
+													<img src="images/application/moncompte.gif"/>
+												</a>
+												&nbsp;&nbsp;
+												<a href="Calendrier.action" title="Rendez Vous">
+													<img src="images/application/charger.gif"/>	
 												</a>
 											</td>
 										</tr>
@@ -137,10 +147,10 @@
 						<td valign="top" width="100%" style="padding-left:8px;padding-right:8px">
 							<ul id="menuhaut">
 								<li><a title="Accueil">Accueil</a></li>
-								<li><a href="promotions_Article.action" title="Promotions">Etudiants</a></li>
-								<li><a href="nouveautes_Article.action" title="Nouveaut&eacute;s">Professeurs</a></li>
-								<li><a href="Cgv.action" title="CGV">Medecin</a></li>
-								<li><a href="lister_Panier.action" title="Panier">Patient</a></li>
+								<li><a href="ListingAction.action" title="Etudiant">Etudiants</a></li>
+								<li><a href="ListingAction.action" title="Professeur">Professeurs</a></li>
+								<li><a href="ListingAction.action" title="Medecin">Medecin</a></li>
+								<li><a href="ListingAction.action" title="Patient">Patient</a></li>
 							</ul>
 						
 						

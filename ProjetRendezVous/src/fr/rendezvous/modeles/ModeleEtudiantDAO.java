@@ -7,7 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 import fr.rendezvous.boiteoutils.GestionBaseDeDonnees;
 //import fr.rendezvous.javabeans.Client;
+import fr.rendezvous.javabeans.Client;
 import fr.rendezvous.javabeans.Etudiant;
+import fr.rendezvous.javabeans.Professeur;
 
 public class ModeleEtudiantDAO extends ModeleDAO
 {
@@ -69,15 +71,16 @@ public class ModeleEtudiantDAO extends ModeleDAO
 	
 	
 	// Ajouter un client
-	public int ajouterClient(Etudiant client) 
+	public int ajouterClient(Etudiant client1, Client client) 
 	{
 		// Variables
 		PreparedStatement requete=null;
 		String requeteString=null;
 		int codeErreur=0;
-		
+		if(getMail(client.getMail())==null){
 		try 
 		{	
+			
 			// Ouverture d'une connexion
 			connexion=super.getConnection();
 			
@@ -100,10 +103,10 @@ public class ModeleEtudiantDAO extends ModeleDAO
 			requete.setString(12,(String)client.getMotDePasse());
 			
 			//attribut de etudiant
-			requete.setString(13,(String)client.getNumeroEtudiant());
-			requete.setString(14,(String)client.getOption());
-			requete.setString(15,(String)client.getNiveau());
-			requete.setString(16,(String)client.getServiceSocial());
+			requete.setString(13,(String)client1.getNumeroEtudiant());
+			requete.setString(14,(String)client1.getOption());
+			requete.setString(15,(String)client1.getNiveau());
+			requete.setString(16,(String)client1.getServiceSocial());
 			
 			System.out.println(client.getNom());
 			System.out.println(client.getPrenom());
@@ -117,22 +120,23 @@ public class ModeleEtudiantDAO extends ModeleDAO
 			System.out.println(client.getTelephone());
 			System.out.println(client.getDateNaissance());
 			System.out.println(client.getSexe());
-			System.out.println(client.getNumeroEtudiant());
+			System.out.println(client1.getNumeroEtudiant());
 			System.out.println(client.getIdentifiant());
 			System.out.println(client.getMotDePasse());
-			System.out.println(client.getOption());
-			System.out.println(client.getNiveau());
-			System.out.println(client.getServiceSocial());
+			System.out.println(client1.getOption());
+			System.out.println(client1.getNiveau());
+			System.out.println(client1.getServiceSocial());
 			// On vide le client par sécurité
 			client=null;
 			
 			// Execution de la requête
 			codeErreur=requete.executeUpdate();
 		}
+		
 		catch (Exception e) 
 		{
 			codeErreur=0;
-			System.out.println("Erreur dans la requete dans la classe ModeleClient.java fonction creerClient");
+			System.out.println("Erreur dans la requete dans la classe ModeleClient.java fonction creerEtudiant");
 		}
 		finally
 		{
@@ -157,7 +161,7 @@ public class ModeleEtudiantDAO extends ModeleDAO
 				System.out.println("Erreur lors de la fermeture de la connexion avec la base de données dans la classe ModelClient fonction creerClient");
 			}	
 		}
-		
+		}
 		// Retourne le code d'erreur
 		return codeErreur;
 	}
@@ -415,7 +419,7 @@ public class ModeleEtudiantDAO extends ModeleDAO
     	{
     		/* Si l'identifant du client n'existe pas, on initialise l'objet client à null */
 			client = null;
-    		System.out.println("Erreur dans la requête dans la classe ModeleClient.java fonction getClient");    		
+    		System.out.println("Erreur dans la requête dans la classe ModeleClient.java fonction getEtudiant");    		
     	}
     	
     	finally
@@ -447,7 +451,72 @@ public class ModeleEtudiantDAO extends ModeleDAO
     }
     
     
+    // Retourner les informations d'un client à partir de son mail
+    public Etudiant getMail(String mail)
+    {
+    	// Variables
+    	PreparedStatement requete=null;
+    	Etudiant client=null;
+    	String requeteString=null;
     
+    	try
+    	{
+    		// Ouverture d'une connexion
+    		connexion=super.getConnection();
+    		
+    		// Création de la requête
+    		requeteString="SELECT * FROM etudiant where mail = ?";
+    		
+    		// Preparer la requete
+    		requete=connexion.prepareStatement(requeteString);
+    		requete.setString(1,mail);
+    			
+    		// Execution de la requête
+    		resultat=requete.executeQuery();
+    		
+    		// On stocke le resultat dans la l'objet client
+    		if(resultat!=null)
+    		{
+    			if(resultat.next())
+    			{
+    				// On mappe les attribus du client dans la classe avec la base
+    				client=clientAttribusMapper(resultat); 				
+    			}
+    		}
+       	}
+    	catch(Exception e)
+    	{
+    		// Si l'identifant du client n'existe pas, on initialise l'objet client à null
+			client=null;
+    		System.out.println("Erreur dans la requête dans la classe ModeleClient.java fonction getClient");    		
+    	}
+    	finally
+    	{
+    		try
+    		{
+    			// Fermeture de la connexion
+    			if(resultat!=null)
+    			{
+    				GestionBaseDeDonnees.closeResulset(resultat);
+    			}
+    			if(requete!=null)
+    			{
+    				GestionBaseDeDonnees.closeRequest(requete);
+    			}
+    			if(connexion!=null)
+    			{
+    				GestionBaseDeDonnees.closeConnection(connexion);
+    			}
+    		}
+    		catch(Exception ex)
+    		{
+    			System.out.println("Erreur lors de la fermeture de la connexion avec la base de données dans la classe ModeleClient.java fonction getClient");
+    		}	
+    	}
+    	
+    	// Retourner un client
+    	return client;
+    } 
     
     // Retourner les informations d'un client à partir de son idClient
     public Etudiant getClient(int idClient)

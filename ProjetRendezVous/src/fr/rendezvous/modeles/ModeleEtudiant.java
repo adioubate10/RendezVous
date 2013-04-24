@@ -105,7 +105,7 @@ public class ModeleEtudiant extends ModeleDAO
 		catch (Exception e) 
 		{
 			codeErreur=0;
-			System.out.println("Erreur dans la requete dans la classe ModeleClient.java fonction creerClient");
+			System.out.println("Erreur dans la requete dans la classe ModeleClient.java fonction creerClient"+e.getMessage());
 		}
 		finally
 		{
@@ -127,7 +127,7 @@ public class ModeleEtudiant extends ModeleDAO
 			}
 			catch(Exception ex)
 			{
-				System.out.println("Erreur lors de la fermeture de la connexion avec la base de données dans la classe ModelClient fonction creerClient");
+				System.out.println("Erreur lors de la fermeture de la connexion avec la base de données dans la classe ModelClient fonction creeretu"+ex.getMessage());
 			}	
 		}
 		
@@ -245,7 +245,7 @@ public class ModeleEtudiant extends ModeleDAO
 		}
 		catch(Exception e)
 		{
-			System.out.println("Erreur dans la requete dans la classe ModeleClient fonction listerClient");
+			System.out.println("Erreur dans la requete dans la classe ModeleClient fonction listerClient"+e.getMessage());
 		}
 		finally
 		{
@@ -267,7 +267,7 @@ public class ModeleEtudiant extends ModeleDAO
 			}
 			catch(Exception ex)
 			{
-				System.out.println("Erreur lors de la fermeture de la connexion avec la base de données dans la classe ModeleClients fonction listerClient");
+				System.out.println("Erreur lors de la fermeture de la connexion avec la base de données dans la classe ModeleClients fonction listerClient"+ex.getMessage());
 			}	
 		}
 		
@@ -317,7 +317,7 @@ public class ModeleEtudiant extends ModeleDAO
 		
 		catch(Exception e)
 		{
-			System.out.println("Erreur dans la requete dans la classe ModeleClient fonction listerClient");
+			System.out.println("Erreur dans la requete dans la classe ModeleClient fonction listerClient"+e.getMessage());
 		}
 		
 		finally
@@ -340,7 +340,7 @@ public class ModeleEtudiant extends ModeleDAO
 			}
 			catch(Exception ex)
 			{
-				System.out.println("Erreur lors de la fermeture de la connexion avec la base de données dans la classe ModeleClients fonction listerClient");
+				System.out.println("Erreur lors de la fermeture de la connexion avec la base de données dans la classe ModeleClients fonction lister"+ex.getMessage());
 			}	
 		}
 		
@@ -388,7 +388,7 @@ public class ModeleEtudiant extends ModeleDAO
     	{
     		/* Si l'identifant du client n'existe pas, on initialise l'objet client à null */
 			client = null;
-    		System.out.println("Erreur dans la requête dans la classe ModeleClient.java fonction getClient");    		
+    		System.out.println("Erreur dans la requête dans la classe ModeleClient.java fonction getetu"+e.getMessage());    		
     	}
     	
     	finally
@@ -411,7 +411,7 @@ public class ModeleEtudiant extends ModeleDAO
     		}
     		catch(Exception ex)
     		{
-    			System.out.println("Erreur lors de la fermeture de la connexion avec la base de données dans la classe ModeleClient.java fonction getClient");
+    			System.out.println("Erreur lors de la fermeture de la connexion avec la base de données dans la classe ModeleClient.java fonction getetu"+ex.getMessage());
     		}	
     	}
     	
@@ -459,7 +459,7 @@ public class ModeleEtudiant extends ModeleDAO
     	{
     		// Si l'identifant du client n'existe pas, on initialise l'objet client à null
 			client=null;
-    		System.out.println("Erreur dans la requête dans la classe ModeleClient.java fonction getClient");    		
+    		System.out.println("Erreur dans la requête dans la classe ModeleClient.java fonction getClient"+e.getMessage());    		
     	}
     	finally
     	{
@@ -481,7 +481,7 @@ public class ModeleEtudiant extends ModeleDAO
     		}
     		catch(Exception ex)
     		{
-    			System.out.println("Erreur lors de la fermeture de la connexion avec la base de données dans la classe ModeleClient.java fonction getClient");
+    			System.out.println("Erreur lors de la fermeture de la connexion avec la base de données dans la classe ModeleClient.java fonction getClient"+ex.getMessage());
     		}	
     	}
     	
@@ -527,7 +527,7 @@ public class ModeleEtudiant extends ModeleDAO
 		catch(Exception e) 
 		{
 			codeErreur=0;
-			System.out.println("Erreur dans la requete dans la classe ModeleClient.java fonction modifierClient");
+			System.out.println("Erreur dans la requete dans la classe ModeleClient.java fonction modifierClient"+e.getMessage());
 		}
 		finally
 		{
@@ -549,7 +549,7 @@ public class ModeleEtudiant extends ModeleDAO
 			}
 			catch(Exception ex)
 			{
-				System.out.println("Erreur lors de la fermeture de la connexion avec la base de données dans la classe ModelClient fonction modifierClient");
+				System.out.println("Erreur lors de la fermeture de la connexion avec la base de données dans la classe ModelClient fonction modifierClient"+ex.getMessage());
 			}	
 		}
 		
@@ -632,7 +632,7 @@ public class ModeleEtudiant extends ModeleDAO
 			}
 			catch(Exception ex)
 			{
-				System.out.println("Erreur lors de la fermeture de la connexion avec la base de données dans la classe ModeleClient fonction supprimerClient");
+				System.out.println("Erreur lors de la fermeture de la connexion avec la base de données dans la classe ModeleClient fonction supprimerClient"+ex.getMessage());
 			}	
 		}
 		
@@ -775,7 +775,7 @@ public class ModeleEtudiant extends ModeleDAO
 	    {
 	    	// Si il y a une erreur durant le mappage des attributs avec la base on renvoi un objet null
 	    	client=null;
-	    	System.out.println("Erreur lors du mappage des attributs d'un client dans la class ModeleClient, fonction clientAttribusMapper");
+	    	System.out.println("Erreur lors du mappage des attributs d'un client dans la class ModeleClient, fonction clientAttribusMapper"+e.getMessage());
 	    }
 	    
 	    // On retourne le client

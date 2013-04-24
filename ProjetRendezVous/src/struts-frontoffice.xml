@@ -18,7 +18,13 @@
 		<action name="Index" class="fr.rendezvous.actions.AccueilAction">
             <result>/vues/utilisateurs/index.jsp</result>
         </action>
-                 <action name="Authentification" class="fr.rendezvous.actions.AuthentificationAction">
+        <action name="RendezVous">
+            <result>/vues/utilisateurs/rendezvous.jsp</result>
+        </action>
+        <action name="Calendrier">
+            <result>/vues/utilisateurs/calendrier.jsp</result>
+        </action>
+        <action name="Authentification" class="fr.rendezvous.actions.AuthentificationAction">
             <result name="input">/vues/utilisateurs/index.jsp</result>
             <result name="error">/vues/utilisateurs/index.jsp</result>
             <result>/vues/utilisateurs/index.jsp</result>
@@ -33,15 +39,35 @@
             <interceptor-ref name="paramsPrepareParamsStack"/>
             <result>/vues/utilisateurs/{1}client.jsp</result>
         </action>
-        <action name="ListingAction" class="fr.rendezvous.actions.ListingAction">
+        <action name="Calendrier">
+            <result>/vues/utilisateurs/calendrier.jsp</result>
+        </action>
+        
+        <action name="Ajoutercalendrier" class="fr.rendezvous.actions.CalendrierAction" method="ajouter">
+       		<result name="input">/vues/utilisateurs/ajoutercalendrier.jsp</result>
+            <result name="error">/vues/utilisateurs/index.jsp</result>
+            <interceptor-ref name="paramsPrepareParamsStack"/>
+            <result>/vues/utilisateurs/ajoutercalendrier.jsp</result>
+        </action>
+         <action name="Validercalendrier" class="fr.rendezvous.actions.CalendrierAction" method="valider">
+       		<result name="input">/vues/utilisateurs/ajoutercalendrier.jsp</result>
+            <result name="error">/vues/utilisateurs/index.jsp</result>
+            <interceptor-ref name="paramsPrepareParamsStack"/>
+            <result name="success">/vues/utilisateurs/calendrier.jsp</result>
+        </action>
+        <action name="Listercalendrier">
+       		
+            <result name="success">/vues/utilisateurs/calendrier.jsp</result>
+        </action>
+ <action name="ListingAction" class="fr.rendezvous.actions.ListingAction">
 <result>/vues/utilisateurs/ajouterutilisateur.jsp</result>
 </action>
-<action name="DetailAction" class="fr.rendezvous.actions.DetailAction">
-<result>/vues/utilisateurs/detail.jsp</result>
+
+<action name="AjaxClientAction" class="fr.rendezvous.actions.AjaxClientAction">
+<result>/vues/utilisateurs/ajouterajaxclient.jsp</result>
+
 </action>
-<action name="EtudiantAction" class="fr.rendezvous.actions.EtudiantAction">
-<result>/vues/utilisateurs/ajouteretudiant.jsp</result>
-</action>
+
     </package>
 
 </struts>

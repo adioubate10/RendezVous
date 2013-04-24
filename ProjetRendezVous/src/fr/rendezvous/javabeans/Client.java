@@ -26,9 +26,16 @@ public class Client
 	public Client()
 	{
 		super();
+		
 	}
 	
 	
+	public Client(String status) {
+		super();
+		
+	}
+
+
 	public Client(int idClient, String nom, String prenom, String mail,
 			String telephone, String adresse, String codePostal, String ville,
 			String pays, String identifiant, String motDePasse,
@@ -48,6 +55,7 @@ public class Client
 		this.confirmationMotDePasse = confirmationMotDePasse;
 		this.sexe = sexe;
 		this.dateNaissance = dateNaissance;
+		
 	}
 
 
@@ -184,5 +192,15 @@ public class Client
 	public void setIdClient(int idClient) {
 		this.idClient = idClient;
 	}
+	private String status="Professeur";
 
+
+	public String getStatus() {
+		return status;
+	}
+
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 }

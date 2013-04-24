@@ -14,6 +14,7 @@ public class Etudiant extends Client{
 	private String matiere;
 	private String niveau;
 	private String serviceSocial;
+	private String jeton;
 	public String getNumeroEtudiant() {
 		return numeroEtudiant;
 	}
@@ -52,6 +53,13 @@ public class Etudiant extends Client{
 
 	public void setServiceSocial(String serviceSociale) {
 		this.serviceSocial = serviceSociale;
+	}
+	public String getJeton() {
+		return jeton;
+	}
+
+	public void setJeton(String jeton) {
+		this.jeton = jeton;
 	}
 
 	public Etudiant() {

@@ -10,8 +10,10 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.Preparable;
 import fr.rendezvous.javabeans.Client;
 import fr.rendezvous.javabeans.Etudiant;
+import fr.rendezvous.javabeans.Professeur;
 import fr.rendezvous.modeles.ModeleClientDAO;
 import fr.rendezvous.modeles.ModeleEtudiantDAO;
+import fr.rendezvous.modeles.ModeleProfesseurDAO;
 import fr.rendezvous.boiteoutils.GestionDroit;
 
 
@@ -28,15 +30,24 @@ public class ClientAction extends ActionSupport
 	private GestionDroit gestionDroit=null;
 	//private HttpServletRequest request;
 	// Objets
-	private Client client;
+	private Client client=new Client();
 	// id du client
-	private EtudiantAction etudiantaction;
-
-	private int idClient;
-	private Etudiant etudiant;
-
-
+	private Professeur professeur;
 	
+	private int idClient;
+	private Etudiant etudiant=new Etudiant();
+    private ListingAction lista;
+	
+	
+
+	public Professeur getProfesseur() {
+		return professeur;
+	}
+
+	public void setProfesseur(Professeur professeur) {
+		this.professeur = professeur;
+	}
+
 	public Etudiant getEtudiant() {
 		return etudiant;
 	}
@@ -45,8 +56,11 @@ public class ClientAction extends ActionSupport
 		this.etudiant = etudiant;
 	}
 
-	public Object getModel() {
+	public Object getModel2() {
 		return client;
+	}
+	public Object getModel() {
+		return etudiant;
 	}
 
 	public int getIdClient() {
@@ -90,53 +104,54 @@ public class ClientAction extends ActionSupport
 		//gestionDroit=new GestionDroit(this.request);
 		
 		// On autorise uniquement les utilisateur anonyme
-		
+		AjaxClientAction ajax=new AjaxClientAction();
+		System.out.println("son status "+ajax.getStatus());
 			return SUCCESS;
 		
 	}
 	
 	
-	
-	
 	public String validerAjouter()
 	{
-		/* Varibales
-				int codeErreur=0;
-				// Initialisation du mod�le
-				ModeleClientDAO modeleClientDAO=new ModeleClientDAO();
-				
-				// On ajoute le client � la base de donn�e, renvoi 1 si l'ajout s'est d�roul� avec succ�s
-				codeErreur=modeleClientDAO.ajouterClient(client);
-					
-				// On test le code de retour pour afficher un message de succes ou d'erreur
-				if(codeErreur!=1)
-				{		
-					// Erreur lors de la cr�ation
-					addActionError(getText("erreur.creationclient"));
-					return ERROR;
-				}
-				else
-				{	
-					// Succ�s lors de la cr�ation
-					addActionMessage(getText("succes.creationclient"));
-					// retourner sur la page d'accueil du site
-					return "accueil";
-				}
-				*/
+		AjaxClientAction ajax=new AjaxClientAction();
+	System.out.println("status 4"+ajax.populateDetail("Etudiant"));
+		String resultat=ERROR;
 		int codeErreur=0;
+		 if (ajax.populateDetail("Etudiant").equalsIgnoreCase("Professeur")) {	
 		ModeleEtudiantDAO modeletu=new ModeleEtudiantDAO();
-		codeErreur=modeletu.ajouterClient(etudiant);
+		codeErreur=modeletu.ajouterClient(etudiant,client);
+		if (codeErreur==1) 	{
+		
+			// Succ�s lors de la cr�ation
+			addActionMessage(getText("succes.creationclient"));
+			// retourner sur la page d'accueil du site
+			resultat="accueil";
+			
+		} else {
+			// Erreur lors de la cr�ation
+			addActionError(getText("erreur.creationclient"));
+			resultat=ERROR;
+		}
+	}
+		 else if (ajax.populateDetail("Professeur").equalsIgnoreCase("Professeur")) {
+		ModeleProfesseurDAO modeleprof=new ModeleProfesseurDAO();
+		codeErreur=modeleprof.ajouterClient(professeur,client);
 		if (codeErreur==1){
 			// Succ�s lors de la cr�ation
 			addActionMessage(getText("succes.creationclient"));
 			// retourner sur la page d'accueil du site
-			return "accueil";
+			resultat="accueil";
+			
 		} else {
 			// Erreur lors de la cr�ation
 			addActionError(getText("erreur.creationclient"));
-			return ERROR;
+			resultat=ERROR;
+			
 		}
-			}
+		
+         }
+		return resultat;
+	}
 	
 	// Afficher le formulaire de modification � partir des informations du mod�le
 		public String modifier()
@@ -200,13 +215,7 @@ public class ClientAction extends ActionSupport
 			return SUCCESS;
 		}
 
-		public EtudiantAction getEtudiantaction() {
-			return etudiantaction;
-		}
-
-		public void setEtudiantaction(EtudiantAction etudiantaction) {
-			this.etudiantaction = etudiantaction;
-		}
+		
 	
 	
 	

@@ -19,11 +19,18 @@
 	<s:textfield key="#session.compte.codePostal" label="%{getText('client.codePostal')}" cssClass="input" readonly="true"/>
 	<s:textfield key="#session.compte.ville" label="%{getText('client.ville')}" cssClass="input" readonly="true"/>
 	<s:textfield key="#session.compte.pays" label="%{getText('client.pays')}" cssClass="input" readonly="true"/>
-	
+	<c:if test="${compte.class=='class fr.rendezvous.javabeans.Etudiant'}">
 	<s:textfield key="#session.compte.numeroEtudiant" label="%{getText('etudiant.numeroEtudiant')}" cssClass="input" readonly="true"/>
 	<s:textfield key="#session.compte.option" label="%{getText('etudiant.option')}" cssClass="input" readonly="true"/>
 	<s:textfield key="#session.compte.niveau" label="%{getText('etudiant.niveau')}" cssClass="input" readonly="true"/>
 	<s:textfield key="#session.compte.serviceSocial" label="%{getText('etudiant.serviceSocial')}" cssClass="input" readonly="true"/>
+	</c:if>
+	<c:if test="${compte.class=='class fr.rendezvous.javabeans.Professeur'}">
+	<s:textfield key="#session.compte.grade" label="%{getText('professeur.grade')}" cssClass="input" readonly="true"/>
+	<s:textfield key="#session.compte.telFixe" label="%{getText('professeur.telFixe')}" cssClass="input" readonly="true"/>
+	<s:textfield key="#session.compte.specialite" label="%{getText('professeur.specialite')}" cssClass="input" readonly="true"/>
+	<s:textfield key="#session.compte.specialiteDesc" label="%{getText('professeur.specialitedesc')}" cssClass="input" readonly="true"/>
+	</c:if>
 	</td></tr>
 	<tr>
 	<td colspan="2" align="center">

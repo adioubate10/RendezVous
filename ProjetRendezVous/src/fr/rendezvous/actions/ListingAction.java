@@ -8,6 +8,14 @@ import java.util.List;
 public class ListingAction extends ActionSupport {
 	@SuppressWarnings("rawtypes")
 	private List lstList1 = null;
+    private String status="Etu";
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
 	public String execute() throws Exception {
 		populateDetail();
@@ -17,8 +25,9 @@ public class ListingAction extends ActionSupport {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void populateDetail() {
 		lstList1 = new ArrayList();
+		
 		lstList1.add("Etudiant");
-		lstList1.add("patient");
+		lstList1.add("Patient");
 		lstList1.add("Professeur");
 
 	}

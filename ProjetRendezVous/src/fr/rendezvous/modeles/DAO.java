@@ -3,6 +3,8 @@
  */
 package fr.rendezvous.modeles;
 
+import java.sql.Connection;
+
 /**
  * @author diopref
  *

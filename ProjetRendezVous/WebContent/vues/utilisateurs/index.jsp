@@ -12,5 +12,5 @@
 		Veuillez utiliser le menu de gauche pour naviguer dans le site.
 	</div>
 
-<%@ include file="../outils/adminpiedpage.jspf" %>
+<%@ include file="../outils/piedpage.jspf" %>
 
