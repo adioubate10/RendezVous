@@ -57,6 +57,43 @@
         </action>
         <action name="Listercalendrier">
        		
+            <result>/vues/utilisateurs/calendrier.jsp</result>
+        </action>
+         <action name="Synchronisercalendrier" class="fr.rendezvous.actions.CalendrierAction" method="synchroniser">
+            <result name="input">/vues/utilisateurs/index.jsp</result>
+       		<result name="error">/vues/utilisateurs/index.jsp</result>
+            <interceptor-ref name="paramsPrepareParamsStack"/>
+            <result name="success">/vues/utilisateurs/calendrier.jsp</result>
+        </action>
+         <action name="DeSynchronisercalendrier" class="fr.rendezvous.actions.CalendrierAction" method="desynchroniser">
+            <result name="success" type="redirect">Calendrier.action</result>
+        </action>
+        <action name="Listercalendrier" class="fr.rendezvous.actions.CalendrierAction" method="consulter">
+       		
+            <result>/vues/utilisateurs/rechercheCalendrier.jsp</result>
+        </action>
+        <action name="validerrecherche" class="fr.rendezvous.actions.CalendrierAction" method="validerrecherche">
+       		<result name="input">/vues/utilisateurs/rechercheCalendrier.jsp</result>
+            <result name="error">/vues/utilisateurs/index.jsp</result>
+            <interceptor-ref name="paramsPrepareParamsStack"/>
+            <result>/vues/utilisateurs/rendezvous.jsp</result>
+        </action>
+        <action name="Ajouterrdv" class="fr.rendezvous.actions.CalendrierAction" method="ajouterrdv">
+       		
+            <result>/vues/utilisateurs/ajouterrdv.jsp</result>
+        </action>
+         <action name="Validerrdv" class="fr.rendezvous.actions.CalendrierAction" method="validerrdv">
+       		<result name="input">/vues/utilisateurs/ajouterrdv.jsp</result>
+            <result name="error">/vues/utilisateurs/calendrier.jsp</result>
+            <interceptor-ref name="paramsPrepareParamsStack"/>
+            <result name="success">/vues/utilisateurs/calendrier.jsp</result>
+        </action>
+        <action name="Listerrdv">
+       		
+            <result>/vues/utilisateurs/calendrier.jsp</result>
+        </action>
+        <action name="Supprimerrdv">
+       		
             <result name="success">/vues/utilisateurs/calendrier.jsp</result>
         </action>
  <action name="ListingAction" class="fr.rendezvous.actions.ListingAction">

@@ -1,5 +1,7 @@
 package fr.rendezvous.javabeans;
 
+import java.util.List;
+
 public class Calendrier {
  private String titre;
  private String description;
@@ -9,6 +11,7 @@ public class Calendrier {
  private String id;
  private int identifient;
  private int professeur;
+private List<RendezVous> listeRendezVous;
  public Calendrier(String titre, String description, String date,
 		String couleur, String lieu, String id, int identifient,
 		int professeur) {
@@ -76,5 +79,14 @@ public String getLieu() {
 }
 public void setLieu(String lieu) {
 	this.lieu = lieu;
+}
+public List<RendezVous> getListeRendezVous() 
+{
+	return listeRendezVous;
+}
+
+public void setListeRendezVous(List<RendezVous> listeRendezVous) 
+{
+	this.listeRendezVous = listeRendezVous;
 }
 }

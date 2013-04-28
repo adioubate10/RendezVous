@@ -10,6 +10,7 @@ import fr.rendezvous.boiteoutils.GestionBaseDeDonnees;
 import fr.rendezvous.javabeans.Calendrier;
 import fr.rendezvous.javabeans.Etudiant;
 import fr.rendezvous.javabeans.Professeur;
+import fr.rendezvous.javabeans.RendezVous;
 
 public class ModeleCalendrierDAO extends ModeleDAO
 {
@@ -101,7 +102,7 @@ public class ModeleCalendrierDAO extends ModeleDAO
 
 	
 	
-	public List<Calendrier> listeCl()
+	public List<Calendrier> listeCl(int id_prof)
 	{	
 		/* Variables */
 		PreparedStatement requete = null;
@@ -115,11 +116,11 @@ public class ModeleCalendrierDAO extends ModeleDAO
 			connexion = super.getConnection();
 		
 			/* Création de la requête */
-			requeteString = "SELECT * FROM Calendrier WHERE 1";
+			requeteString = "SELECT * FROM calendrier where id_professeur=?";
 			
 			/* Préparation de la requête */
 			requete = connexion.prepareStatement(requeteString);
-			
+    		requete.setInt(1,id_prof);
 			/* Execution de la requête */
 			resultat = requete.executeQuery();
 
@@ -482,4 +483,8 @@ public class ModeleCalendrierDAO extends ModeleDAO
 	    // On retourne le client
 	    return cl;
 	}
+
+
+
+	
 }

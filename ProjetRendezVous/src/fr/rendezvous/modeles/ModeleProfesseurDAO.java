@@ -334,7 +334,72 @@ public class ModeleProfesseurDAO extends ModeleDAO
     	return client;
     }
    
+    public Professeur getId(String nomClient)
+    {
+    	// Variables
+    	PreparedStatement requete=null;
+    	Professeur client=null;
+    	String requeteString=null;
     
+    	try
+    	{
+    		// Ouverture d'une connexion
+    		connexion=super.getConnection();
+    		
+    		// Création de la requête
+    		requeteString="SELECT * FROM professeur where nom = ?";
+    		
+    		// Preparer la requete
+    		requete=connexion.prepareStatement(requeteString);
+    		requete.setString(1,nomClient);
+    			
+    		// Execution de la requête
+    		resultat=requete.executeQuery();
+    		
+    		// On stocke le resultat dans la l'objet client
+    		if(resultat!=null)
+    		{
+    			if(resultat.next())
+    			{
+    				// On mappe les attribus du client dans la classe avec la base
+    				client=clientAttribusMapper(resultat); 				
+    			}
+    		}
+       	}
+    	catch(Exception e)
+    	{
+    		// Si l'identifant du client n'existe pas, on initialise l'objet client à null
+			client=null;
+    		System.out.println("Erreur dans la requête dans la classe ModeleClient.java fonction getClient");    		
+    	}
+    	finally
+    	{
+    		try
+    		{
+    			// Fermeture de la connexion
+    			if(resultat!=null)
+    			{
+    				GestionBaseDeDonnees.closeResulset(resultat);
+    			}
+    			if(requete!=null)
+    			{
+    				GestionBaseDeDonnees.closeRequest(requete);
+    			}
+    			if(connexion!=null)
+    			{
+    				GestionBaseDeDonnees.closeConnection(connexion);
+    			}
+    		}
+    		catch(Exception ex)
+    		{
+    			System.out.println("Erreur lors de la fermeture de la connexion avec la base de données dans la classe ModeleClient.java fonction getClient"+ex.getMessage());
+    		}	
+    	}
+    	
+    	// Retourner un client
+    	return client;
+    }
+   
     // Retourner les informations d'un client à partir de son mail
     public Professeur getMail(String mail)
     {

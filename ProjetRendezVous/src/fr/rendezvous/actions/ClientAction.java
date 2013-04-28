@@ -32,7 +32,7 @@ public class ClientAction extends ActionSupport
 	// Objets
 	private Client client=new Client();
 	// id du client
-	private Professeur professeur;
+	private Professeur professeur=new Professeur();
 	
 	private int idClient;
 	private Etudiant etudiant=new Etudiant();
@@ -113,11 +113,12 @@ public class ClientAction extends ActionSupport
 	
 	public String validerAjouter()
 	{
-		AjaxClientAction ajax=new AjaxClientAction();
-	System.out.println("status 4"+ajax.populateDetail("Etudiant"));
+		
+	System.out.println("status"+etudiant.getNumeroEtudiant());
+	System.out.println("status"+etudiant.getAdresse());
 		String resultat=ERROR;
 		int codeErreur=0;
-		 if (ajax.populateDetail("Etudiant").equalsIgnoreCase("Professeur")) {	
+		 if (etudiant.getNiveau()!=null) {	
 		ModeleEtudiantDAO modeletu=new ModeleEtudiantDAO();
 		codeErreur=modeletu.ajouterClient(etudiant,client);
 		if (codeErreur==1) 	{
@@ -133,7 +134,7 @@ public class ClientAction extends ActionSupport
 			resultat=ERROR;
 		}
 	}
-		 else if (ajax.populateDetail("Professeur").equalsIgnoreCase("Professeur")) {
+		 else if(professeur.getGrade()!=null) {	 
 		ModeleProfesseurDAO modeleprof=new ModeleProfesseurDAO();
 		codeErreur=modeleprof.ajouterClient(professeur,client);
 		if (codeErreur==1){

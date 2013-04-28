@@ -69,11 +69,11 @@
 			<td width="100%" valign="top">
 				<ul class="menucategorie">
 				
-							<li><a title="Accueil">Accueil</a></li>
-								<li><a href="ListingAction.action" title="Etudiant">Etudiants</a></li>
-								<li><a href="ListingAction.action" title="Professeur">Professeurs</a></li>
-								<li><a href="ListingAction.action" title="Medecin">Medecin</a></li>
-								<li><a href="ListingAction.action" title="Patient">Patient</a></li>
+							
+								<li><a href="ListingAction.action" title="Etudiant">Prendre RDV</a></li>
+								<li><a href="ListingAction.action" title="Professeur">Consulter RDV</a></li>
+								<li><a href="ListingAction.action" title="Medecin">Modifier RDV</a></li>
+								<li><a href="ListingAction.action" title="Patient">Annuler RDV</a></li>
 							
 					
 				</ul>

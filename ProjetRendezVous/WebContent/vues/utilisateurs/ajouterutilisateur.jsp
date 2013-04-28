@@ -24,7 +24,7 @@ int id=0;
 				 id=0;
 		}%>
 		<s:if test="%{lstList1.get(0).equals('Etudiant')}">
-<s:form  action="validerAjouter_Client" id="frm_demo" name="frm_demo" theme="simple">
+<s:form  action="validerAjouter_Client" id="frm_demo" name="frm_demo" value="" theme="simple">
 		
 <table cellpadding="5" cellspacing="0" class="formulaire">
 <tr>
@@ -45,7 +45,7 @@ onchange="javascript:show_details();return false;" ></s:select>
 	
 	<tr><td colspan="2" class="titreformulaire">
 </select></td></tr>
-	    <tr><td>Sexe:</td><td><select id="sexe" name="client.sexe"><option value=""></option>
+	    <tr><td>Sexe:</td><td><select id="sexe" name="client.sexe"><option value="<c:out value="${calendrier.titre}"/>"></option>
   
     <option value="M">M</option> 
     <option value="F">F</option> </select></td></tr>

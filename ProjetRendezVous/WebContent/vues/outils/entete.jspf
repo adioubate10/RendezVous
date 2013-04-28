@@ -59,13 +59,13 @@
 													<tr>
 														<td>
 															<div class="titregris">IDENTIFIANT</div>
-															<s:textfield key="identifiant" value="bannay" label="Identifiant" cssClass="inputpetit" cssErrorStyle="background-color:#D53A3E"/>
+															<s:textfield key="identifiant" value="dioprefa" label="Identifiant" cssClass="inputpetit" cssErrorStyle="background-color:#D53A3E"/>
 														</td>
 													</tr>
 													<tr>
 														<td>
 															<div class="titregris">MOT DE PASSE</div>
-															<s:textfield key="motDePasse" value="00000" label="motDePasse" cssClass="inputpetit" cssErrorStyle="background-color:#D53A3E"/>
+															<s:textfield key="motDePasse" value="diop2011" label="motDePasse" cssClass="inputpetit" cssErrorStyle="background-color:#D53A3E"/>
 															<input type="image" src="images/application/ok.gif" align="absmiddle" title="Se connecter"/>
 														</td>
 													</tr>
@@ -91,7 +91,7 @@
 									<tr height="50px">
 										<td align="center" style="padding-left:10px;padding-top:20px">
 											<div class="titregris">
-												Bienvenue <c:out value="${compte.nom}"/> <c:out value="${compte.nom}"/>
+												Bienvenue <c:out value="${compte.prenom}"/> <c:out value="${compte.nom}"/>
 		 									</div>
 		 								</td>
 		 							</tr>
