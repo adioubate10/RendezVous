@@ -65,7 +65,7 @@
 													<tr>
 														<td>
 															<div class="titregris">MOT DE PASSE</div>
-															<s:textfield key="motDePasse" value="diop2011" label="motDePasse" cssClass="inputpetit" cssErrorStyle="background-color:#D53A3E"/>
+															<s:textfield key="motDePasse" value="" label="motDePasse" cssClass="inputpetit" cssErrorStyle="background-color:#D53A3E"/>
 															<input type="image" src="images/application/ok.gif" align="absmiddle" title="Se connecter"/>
 														</td>
 													</tr>
